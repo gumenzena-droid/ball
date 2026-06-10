@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<title>Рейтинг участников второго потока SHiLO 50</title>
+<style>
+  :root {
+    --bg: #050605;
+    --panel: rgba(255,255,255,0.045);
+    --panel-soft: rgba(255,255,255,0.026);
+    --line: rgba(255,255,255,0.075);
+    --line-accent: rgba(140,255,180,0.20);
+    --text: #f7f8f7;
+    --muted: rgba(247,248,247,0.58);
+    --green: #89ffb7;
+    --shadow: 0 22px 70px rgba(0,0,0,.56);
+    --radius: 24px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    padding: 30px;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at 78% 0%, rgba(137,255,183,.08), transparent 26%),
+      radial-gradient(circle at 12% 0%, rgba(255,255,255,.05), transparent 18%),
+      linear-gradient(180deg, #090b09 0%, #040504 100%);
+  }
+  .wrap { max-width: 1540px; margin: 0 auto; }
+  .header {
+    margin-bottom: 18px;
+    padding: 24px 28px;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, rgba(255,255,255,0.058), rgba(255,255,255,0.026));
+    border: 1px solid var(--line-accent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  h1 {
+    margin: 0;
+    font-size: clamp(28px, 3.6vw, 44px);
+    line-height: 1.08;
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+  h1 span { color: var(--green); font-weight: 800; }
+  .card {
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+    border: 1px solid var(--line-accent);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .table-wrap { overflow: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 1180px; }
+  thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    text-align: left;
+    padding: 18px 18px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    background: rgba(9,11,9,.92);
+    border-bottom: 1px solid var(--line);
+  }
+  tbody td {
+    padding: 16px 18px;
+    border-top: 1px solid rgba(255,255,255,.052);
+    vertical-align: middle;
+  }
+  tbody tr { transition: background .18s ease; }
+  tbody tr:hover { background: rgba(255,255,255,.024); }
+  .place { width: 82px; font-size: 17px; font-weight: 700; color: rgba(255,255,255,.85); }
+  .num { width: 78px; font-size: 17px; font-weight: 700; color: var(--green); }
+  .name { min-width: 300px; font-size: 17px; font-weight: 600; letter-spacing: .005em; }
+  .metric { min-width: 185px; }
+  .metric-line { display: flex; align-items: baseline; gap: 4px; margin-bottom: 10px; }
+  .value { font-size: 16px; font-weight: 750; color: #fff; }
+  .goal { font-size: 13px; color: var(--muted); font-weight: 500; }
+  .track {
+    height: 9px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255,255,255,.065);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.035);
+  }
+  .fill {
+    width: var(--w);
+    min-width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--c), #000 10%), var(--c));
+    box-shadow: 0 0 14px color-mix(in srgb, var(--c), transparent 72%);
+  }
+  .total-cell { min-width: 130px; }
+  .total-value { font-size: 20px; font-weight: 800; margin-bottom: 9px; }
+  .total-track { height: 8px; }
+  @media (max-width: 900px) {
+    body { padding: 16px; }
+    .header, .card { border-radius: 18px; }
+    thead th, tbody td { padding: 14px 12px; }
+    .name { min-width: 240px; font-size: 15px; }
+    .place, .num { width: 62px; font-size: 15px; }
+    .metric { min-width: 155px; }
+  }
+</style>
+</head>
+<body>
+  <div class='wrap'>
+    <section class='header'>
+      <h1>Рейтинг участников второго потока <span>«SHiLO 50»</span></h1>
+    </section>
+
+    <section class='card'>
+      <div class='table-wrap'>
+        <table>
+          <thead>
+            <tr>
+              <th>Место</th>
+              <th>№</th>
+              <th>Участник</th>
+              <th>Основные</th>
+              <th>Дополнительные</th>
+              <th>Показы</th>
+              <th>Итого</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr>
+        <td class='place'>1</td>
+        <td class='num'>6</td>
+        <td class='name'>Ермилина Светлана</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Почти готово'>
+        <div class='metric-line'>
+          <span class='value'>9</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:90.00%; --c:hsl(112 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>12</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:57.14%; --c:hsl(72 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>2</td>
+        <td class='num'>9</td>
+        <td class='name'>Жукова Елена</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Почти готово'>
+        <div class='metric-line'>
+          <span class='value'>9</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:90.00%; --c:hsl(112 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Выполнено'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:100.00%; --c:hsl(124 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>12</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:57.14%; --c:hsl(72 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>3</td>
+        <td class='num'>11</td>
+        <td class='name'>Конев Олег</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Почти готово'>
+        <div class='metric-line'>
+          <span class='value'>9</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:90.00%; --c:hsl(112 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>11</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:52.38%; --c:hsl(66 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>4</td>
+        <td class='num'>24</td>
+        <td class='name'>Черепанова Елена</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Почти готово'>
+        <div class='metric-line'>
+          <span class='value'>9</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:90.00%; --c:hsl(112 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>11</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:52.38%; --c:hsl(66 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>5</td>
+        <td class='num'>40</td>
+        <td class='name'>Крюков Михаил</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Выполнено'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:100.00%; --c:hsl(124 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>7</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:33.33%; --c:hsl(43 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>6</td>
+        <td class='num'>18</td>
+        <td class='name'>Похоренко Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>6</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:28.57%; --c:hsl(37 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>7</td>
+        <td class='num'>34</td>
+        <td class='name'>Дербышев Денис</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Выполнено'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:100.00%; --c:hsl(124 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>6</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:28.57%; --c:hsl(37 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>8</td>
+        <td class='num'>28</td>
+        <td class='name'>Якушева Ольга</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>5</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:23.81%; --c:hsl(31 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>9</td>
+        <td class='num'>33</td>
+        <td class='name'>Новопашина Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>5</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:23.81%; --c:hsl(31 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>10</td>
+        <td class='num'>26</td>
+        <td class='name'>Яковенко Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>5</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:23.81%; --c:hsl(31 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>11</td>
+        <td class='num'>25</td>
+        <td class='name'>Черепанова Ольга</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Выполнено'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:100.00%; --c:hsl(124 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>5</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:23.81%; --c:hsl(31 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>12</td>
+        <td class='num'>27</td>
+        <td class='name'>Яковенко Надежда</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Выполнено'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:100.00%; --c:hsl(124 84% 49%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>5</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:23.81%; --c:hsl(31 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>13</td>
+        <td class='num'>30</td>
+        <td class='name'>Анонсов Олег</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>3</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:30.00%; --c:hsl(39 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>14</td>
+        <td class='num'>1</td>
+        <td class='name'>Алексеева Наталья</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>15</td>
+        <td class='num'>2</td>
+        <td class='name'>Важенина Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>16</td>
+        <td class='num'>4</td>
+        <td class='name'>Десятова Альфия</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>17</td>
+        <td class='num'>7</td>
+        <td class='name'>Ершова Валентина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>18</td>
+        <td class='num'>10</td>
+        <td class='name'>Каримов Артемий</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>19</td>
+        <td class='num'>12</td>
+        <td class='name'>Кудряшова Алена</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>20</td>
+        <td class='num'>13</td>
+        <td class='name'>Куклина Татьяна</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>21</td>
+        <td class='num'>14</td>
+        <td class='name'>Лазорик Юлия</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>22</td>
+        <td class='num'>16</td>
+        <td class='name'>Парфенова Екатерина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>23</td>
+        <td class='num'>19</td>
+        <td class='name'>Романцова Алена</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>24</td>
+        <td class='num'>21</td>
+        <td class='name'>Стукова Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>25</td>
+        <td class='num'>22</td>
+        <td class='name'>Шадрина Инга</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>26</td>
+        <td class='num'>23</td>
+        <td class='name'>Шикова Лариса</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>27</td>
+        <td class='num'>29</td>
+        <td class='name'>Юркова Елизавета</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>28</td>
+        <td class='num'>32</td>
+        <td class='name'>Баньковский Павел</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>29</td>
+        <td class='num'>37</td>
+        <td class='name'>Аксенова Юля</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>30</td>
+        <td class='num'>38</td>
+        <td class='name'>Кущак Дмитрий</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>31</td>
+        <td class='num'>39</td>
+        <td class='name'>Шарова Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>4</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:19.05%; --c:hsl(25 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>32</td>
+        <td class='num'>3</td>
+        <td class='name'>Горбунова Надежда</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>3</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:14.29%; --c:hsl(19 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>33</td>
+        <td class='num'>15</td>
+        <td class='name'>Марченко Юлия</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>3</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:14.29%; --c:hsl(19 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>34</td>
+        <td class='num'>31</td>
+        <td class='name'>Печерских Ольга</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>3</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:14.29%; --c:hsl(19 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>35</td>
+        <td class='num'>41</td>
+        <td class='name'>Паращук Наталья</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>3</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:14.29%; --c:hsl(19 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>36</td>
+        <td class='num'>8</td>
+        <td class='name'>Завьялова Ирина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>2</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:9.52%; --c:hsl(14 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>37</td>
+        <td class='num'>17</td>
+        <td class='name'>Петров Александр</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>2</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:9.52%; --c:hsl(14 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>38</td>
+        <td class='num'>20</td>
+        <td class='name'>Стрельцова Наталья</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>2</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:9.52%; --c:hsl(14 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>39</td>
+        <td class='num'>35</td>
+        <td class='name'>Утробина Марина</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>2</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:9.52%; --c:hsl(14 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>40</td>
+        <td class='num'>36</td>
+        <td class='name'>Мухачева Яна</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>2</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:20.00%; --c:hsl(26 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>2</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:9.52%; --c:hsl(14 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class='place'>41</td>
+        <td class='num'>5</td>
+        <td class='name'>Долгерт Александра</td>
+        <td>
+      <div class='metric' title='Старт'>
+        <div class='metric-line'>
+          <span class='value'>1</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:10.00%; --c:hsl(14 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/10</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class='metric' title='Нет баллов'>
+        <div class='metric-line'>
+          <span class='value'>0</span><span class='goal'>/1</span>
+        </div>
+        <div class='track'>
+          <div class='fill' style='--w:0.00%; --c:hsl(2 84% 52%);'></div>
+        </div>
+      </div>
+    </td>
+        <td class='total-cell'>
+          <div class='total-value'>1</div>
+          <div class='track total-track'>
+            <div class='fill' style='--w:4.76%; --c:hsl(8 84% 52%);'></div>
+          </div>
+        </td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
