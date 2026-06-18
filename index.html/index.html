@@ -144,6 +144,56 @@
     box-shadow: inset 3px 0 0 rgba(176, 138, 67, 0.78);
   }
 
+
+  .auto-pass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 14px;
+    padding: 7px 13px;
+    border-radius: 999px;
+    border: 1px solid rgba(201, 163, 92, 0.78);
+    background:
+      linear-gradient(135deg, rgba(201, 163, 92, 0.34), rgba(255, 255, 255, 0.055)),
+      radial-gradient(circle at 20% 20%, rgba(255, 229, 163, 0.28), transparent 45%);
+    color: #ffe7a8;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    box-shadow:
+      0 0 22px rgba(201, 163, 92, 0.22),
+      inset 0 0 12px rgba(255, 255, 255, 0.055);
+    vertical-align: middle;
+  }
+  .auto-pass-badge .cup {
+    font-size: 14px;
+    line-height: 1;
+    filter: saturate(0.9);
+  }
+  tr.auto-pass-row {
+    background:
+      linear-gradient(90deg, rgba(201, 163, 92, 0.18), rgba(121, 255, 175, 0.035), rgba(255, 255, 255, 0.012)) !important;
+    box-shadow:
+      inset 4px 0 0 rgba(201, 163, 92, 0.95),
+      inset 0 0 0 1px rgba(201, 163, 92, 0.18),
+      0 0 30px rgba(201, 163, 92, 0.10);
+  }
+  tr.auto-pass-row .name {
+    color: #fff2c7;
+    font-weight: 800;
+  }
+  tr.auto-pass-row .total-val {
+    color: #ffe7a8;
+    text-shadow: 0 0 14px rgba(201, 163, 92, 0.28);
+  }
+  tr.auto-pass-row .participant-name,
+  tr.auto-pass-row .name-cell,
+  tr.auto-pass-row .name {
+    position: relative;
+  }
+
 </style>
 </head>
 <body>
@@ -214,7 +264,7 @@
       <tr class="auto-pass-row">
         <td class='place'>2</td>
         <td class='num'>40</td>
-        <td class='name'>Крюков Михаил <span class="auto-pass-badge"><span class="cup">🏆</span> автопроход</span></td>
+        <td class='name'>Крюков Михаил <span class="auto-pass-badge"><span class="cup">🏆</span> прошёл в следующий модуль</span> автопроход</span></td>
         <td>
       <div class='metric' title='Середина пути'>
         <div class='metric-line'>
