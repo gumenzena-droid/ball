@@ -232,15 +232,6 @@
     filter: saturate(.9);
   }
 
-  @media (max-width: 900px) {
-    body { padding: 16px; }
-    .header, .card { border-radius: 18px; }
-    thead th, tbody td { padding: 14px 12px; }
-    .name { font-size: 15px; min-width: 260px; }
-    .place, .num { font-size: 16px; width: 64px; }
-    .metric { min-width: 150px; }
-  }
-
   .cert-badge {
     display: inline-flex;
     align-items: center;
@@ -248,8 +239,7 @@
     padding: 7px 13px;
     border-radius: 999px;
     border: 1px solid rgba(121, 255, 175, 0.62);
-    background:
-      linear-gradient(135deg, rgba(121, 255, 175, 0.22), rgba(255,255,255,0.045));
+    background: linear-gradient(135deg, rgba(121, 255, 175, 0.22), rgba(255,255,255,0.045));
     color: #c9ffdc;
     font-size: 11px;
     font-weight: 800;
@@ -262,19 +252,26 @@
     vertical-align: middle;
   }
 
-  tr.cert-row {
-    background:
-      linear-gradient(90deg, rgba(121, 255, 175, 0.10), rgba(255,255,255,0.012)) !important;
+  .cert-row {
+    background: linear-gradient(90deg, rgba(121, 255, 175, 0.10), rgba(255,255,255,0.012)) !important;
     box-shadow:
       inset 4px 0 0 rgba(121, 255, 175, 0.74),
       inset 0 0 0 1px rgba(121, 255, 175, 0.12);
   }
 
-  tr.cert-row .name {
+  .cert-row .name {
     color: #e7fff0;
     font-weight: 800;
   }
 
+  @media (max-width: 900px) {
+    body { padding: 16px; }
+    .header, .card { border-radius: 18px; }
+    thead th, tbody td { padding: 14px 12px; }
+    .name { font-size: 15px; min-width: 260px; }
+    .place, .num { font-size: 16px; width: 64px; }
+    .metric { min-width: 150px; }
+  }
 </style>
 </head>
 <body>
@@ -299,7 +296,7 @@
           </thead>
           <tbody>
             
-      <tr class=" auto-pass-row">
+      <tr class="auto-pass-row">
         <td class="place">1</td>
         <td class="num">40</td>
         <td class="name">Крюков Михаил<span class="auto-pass-badge"><span class="cup">🏆</span> автопроход</span></td>
@@ -342,7 +339,7 @@
       </tr>
     
 
-      <tr class=" cert-row">
+      <tr class="cert-row">
         <td class="place">2</td>
         <td class="num">9</td>
         <td class="name">Жукова Елена<span class="cert-badge">Аттестация пройдена</span></td>
@@ -385,7 +382,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">3</td>
         <td class="num">24</td>
         <td class="name">Черепанова Елена</td>
@@ -428,7 +425,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">4</td>
         <td class="num">6</td>
         <td class="name">Ермилина Светлана</td>
@@ -471,7 +468,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">5</td>
         <td class="num">14</td>
         <td class="name">Лазорик Юлия</td>
@@ -514,7 +511,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">6</td>
         <td class="num">41</td>
         <td class="name">Паращук Наталья</td>
@@ -557,7 +554,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">7</td>
         <td class="num">37</td>
         <td class="name">Аксенова Юля</td>
@@ -600,7 +597,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">8</td>
         <td class="num">18</td>
         <td class="name">Пахаренко Ирина</td>
@@ -643,7 +640,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">9</td>
         <td class="num">19</td>
         <td class="name">Романцова Алена</td>
@@ -686,8 +683,51 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">10</td>
+        <td class="num">10</td>
+        <td class="name">Каримов Артемий</td>
+        <td>
+      <div class="metric" title="Цель выполнена">
+        <div class="metric-line">
+          <span class="value">10</span><span class="goal">/10</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class="metric" title="Близко к цели">
+        <div class="metric-line">
+          <span class="value">9</span><span class="goal">/10</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
+        </div>
+      </div>
+    </td>
+        <td>
+      <div class="metric" title="Цель выполнена">
+        <div class="metric-line">
+          <span class="value">1</span><span class="goal">/1</span>
+        </div>
+        <div class="track">
+          <div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
+        </div>
+      </div>
+    </td>
+        <td class="total-cell">
+          <div class="total-value">20</div>
+          <div class="track total-track">
+            <div class="fill" style="--w:95.24%; --c:hsl(118 84% 52%);"></div>
+          </div>
+        </td>
+      </tr>
+    
+
+      <tr>
+        <td class="place">11</td>
         <td class="num">21</td>
         <td class="name">Стукова Ирина</td>
         <td>
@@ -729,8 +769,8 @@
       </tr>
     
 
-      <tr class="">
-        <td class="place">11</td>
+      <tr>
+        <td class="place">12</td>
         <td class="num">27</td>
         <td class="name">Яковенко Надежда</td>
         <td>
@@ -772,8 +812,8 @@
       </tr>
     
 
-      <tr class="">
-        <td class="place">12</td>
+      <tr>
+        <td class="place">13</td>
         <td class="num">39</td>
         <td class="name">Шарова Ирина</td>
         <td>
@@ -815,8 +855,8 @@
       </tr>
     
 
-      <tr class="">
-        <td class="place">13</td>
+      <tr>
+        <td class="place">14</td>
         <td class="num">34</td>
         <td class="name">Дербышев Денис</td>
         <td>
@@ -858,50 +898,7 @@
       </tr>
     
 
-      <tr class="">
-        <td class="place">14</td>
-        <td class="num">10</td>
-        <td class="name">Каримов Артемий</td>
-        <td>
-      <div class="metric" title="Цель выполнена">
-        <div class="metric-line">
-          <span class="value">10</span><span class="goal">/10</span>
-        </div>
-        <div class="track">
-          <div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-        </div>
-      </div>
-    </td>
-        <td>
-      <div class="metric" title="Близко к цели">
-        <div class="metric-line">
-          <span class="value">8</span><span class="goal">/10</span>
-        </div>
-        <div class="track">
-          <div class="fill" style="--w:80.00%; --c:hsl(100 84% 52%);"></div>
-        </div>
-      </div>
-    </td>
-        <td>
-      <div class="metric" title="Цель выполнена">
-        <div class="metric-line">
-          <span class="value">1</span><span class="goal">/1</span>
-        </div>
-        <div class="track">
-          <div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-        </div>
-      </div>
-    </td>
-        <td class="total-cell">
-          <div class="total-value">19</div>
-          <div class="track total-track">
-            <div class="fill" style="--w:90.48%; --c:hsl(112 84% 52%);"></div>
-          </div>
-        </td>
-      </tr>
-    
-
-      <tr class="">
+      <tr>
         <td class="place">15</td>
         <td class="num">32</td>
         <td class="name">Баньковский Павел</td>
@@ -944,7 +941,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">16</td>
         <td class="num">28</td>
         <td class="name">Якушева Ольга</td>
@@ -987,7 +984,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">17</td>
         <td class="num">29</td>
         <td class="name">Юркова Елизавета</td>
@@ -1030,7 +1027,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">18</td>
         <td class="num">31</td>
         <td class="name">Печерских Ольга</td>
@@ -1073,7 +1070,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">19</td>
         <td class="num">2</td>
         <td class="name">Важенина Ирина</td>
@@ -1116,7 +1113,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">20</td>
         <td class="num">3</td>
         <td class="name">Горбунова Надежда</td>
@@ -1159,7 +1156,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">21</td>
         <td class="num">12</td>
         <td class="name">Кудряшова Алена</td>
@@ -1202,7 +1199,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">22</td>
         <td class="num">13</td>
         <td class="name">Куклина Татьяна</td>
@@ -1245,7 +1242,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">23</td>
         <td class="num">16</td>
         <td class="name">Парфенова Екатерина</td>
@@ -1288,7 +1285,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">24</td>
         <td class="num">26</td>
         <td class="name">Яковенко Ирина</td>
@@ -1331,7 +1328,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">25</td>
         <td class="num">38</td>
         <td class="name">Кущак Дмитрий</td>
@@ -1374,7 +1371,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">26</td>
         <td class="num">15</td>
         <td class="name">Марченко Юлия</td>
@@ -1417,7 +1414,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">27</td>
         <td class="num">1</td>
         <td class="name">Алексеева Наталья</td>
@@ -1460,7 +1457,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">28</td>
         <td class="num">25</td>
         <td class="name">Черепанова Ольга</td>
@@ -1503,7 +1500,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">29</td>
         <td class="num">20</td>
         <td class="name">Стрельцова Наталья</td>
@@ -1546,7 +1543,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">30</td>
         <td class="num">7</td>
         <td class="name">Ершова Валентина</td>
@@ -1589,7 +1586,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">31</td>
         <td class="num">4</td>
         <td class="name">Десятова Альфия</td>
@@ -1632,7 +1629,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">32</td>
         <td class="num">17</td>
         <td class="name">Петров Александр</td>
@@ -1675,7 +1672,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">33</td>
         <td class="num">33</td>
         <td class="name">Новопашина Ирина</td>
@@ -1718,7 +1715,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">34</td>
         <td class="num">35</td>
         <td class="name">Утробина Марина</td>
@@ -1761,7 +1758,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">35</td>
         <td class="num">30</td>
         <td class="name">Анонсов Олег</td>
@@ -1804,7 +1801,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">36</td>
         <td class="num">11</td>
         <td class="name">Конев Олег</td>
@@ -1847,7 +1844,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">37</td>
         <td class="num">8</td>
         <td class="name">Завьялова Ирина</td>
@@ -1890,7 +1887,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">38</td>
         <td class="num">23</td>
         <td class="name">Шикова Лариса</td>
@@ -1933,7 +1930,7 @@
       </tr>
     
 
-      <tr class="">
+      <tr>
         <td class="place">39</td>
         <td class="num">5</td>
         <td class="name">Долгерт Александра</td>
