@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SHiLO 50 — рейтинг участников второго потока · Третий модуль</title>
+<title>SHiLO 50 — 3 поток · 1 модуль · 1 неделя</title>
 <style>
   :root {
     --bg: #050605;
@@ -24,7 +24,6 @@
 
   html, body {
     margin: 0;
-    padding: 0;
     min-height: 100%;
   }
 
@@ -39,7 +38,7 @@
   }
 
   .wrap {
-    max-width: 1540px;
+    max-width: 1320px;
     margin: 0 auto;
   }
 
@@ -53,7 +52,6 @@
     border: 1px solid var(--line-green);
     box-shadow: var(--shadow);
     backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
   }
 
   .eyebrow {
@@ -75,7 +73,7 @@
     font-weight: 800;
     font-size: clamp(30px, 4.2vw, 52px);
     line-height: 1.02;
-    letter-spacing: 0.025em;
+    letter-spacing: .025em;
     text-transform: uppercase;
   }
 
@@ -86,7 +84,6 @@
 
   .subtitle {
     margin: 14px 0 0;
-    max-width: 980px;
     color: var(--muted);
     font-size: 15px;
     line-height: 1.55;
@@ -99,22 +96,21 @@
     border: 1px solid var(--line-green);
     box-shadow: var(--shadow);
     backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
   }
 
-  .table-wrap { overflow: auto; }
+  .table-wrap { overflow-x: auto; }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 1180px;
+    min-width: 860px;
   }
 
   thead th {
     text-align: left;
-    padding: 18px 18px;
+    padding: 18px;
     font-size: 12px;
-    letter-spacing: 0.11em;
+    letter-spacing: .11em;
     text-transform: uppercase;
     font-weight: 700;
     color: var(--muted);
@@ -122,7 +118,6 @@
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
-    z-index: 2;
   }
 
   tbody td {
@@ -131,150 +126,66 @@
     vertical-align: middle;
   }
 
-  tbody tr {
-    transition: background .2s ease;
-  }
-
   tbody tr:hover {
     background: rgba(255,255,255,0.025);
   }
 
-  .place,
-  .num {
-    width: 80px;
+  .place {
+    width: 78px;
     font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    white-space: nowrap;
+    font-weight: 800;
   }
 
   .num {
+    width: 72px;
     color: var(--green);
-  }
-
-  .name {
-    min-width: 360px;
     font-size: 17px;
-    font-weight: 600;
-    letter-spacing: .01em;
-  }
-
-  .metric {
-    min-width: 182px;
-  }
-
-  .metric-line {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-    margin-bottom: 10px;
-  }
-
-  .value {
-    font-size: 16px;
     font-weight: 750;
   }
 
-  .goal {
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 500;
+  .name {
+    min-width: 310px;
+    font-size: 17px;
+    font-weight: 650;
   }
 
-  .track {
-    height: 8px;
-    width: 100%;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.06);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .fill {
-    width: var(--w);
-    height: 100%;
-    border-radius: inherit;
-    background: var(--c);
-    box-shadow: 0 0 16px color-mix(in srgb, var(--c) 36%, transparent);
+  .score {
+    width: 150px;
+    font-size: 18px;
+    font-weight: 750;
   }
 
   .total-cell {
-    min-width: 120px;
+    min-width: 170px;
+  }
+
+  .total-line {
+    margin-bottom: 9px;
   }
 
   .total-value {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 8px;
+    color: var(--green);
+    font-size: 21px;
+    font-weight: 900;
   }
 
-  .total-track {
+  .track {
+    width: 100%;
     height: 7px;
-  }
-
-  .cert-row {
-    background: linear-gradient(90deg, rgba(121, 255, 175, 0.10), rgba(255,255,255,0.012)) !important;
-    box-shadow:
-      inset 4px 0 0 rgba(121, 255, 175, 0.74),
-      inset 0 0 0 1px rgba(121, 255, 175, 0.12);
-  }
-
-  .cert-row .name {
-    color: #e7fff0;
-    font-weight: 800;
-  }
-
-  .cert-badge {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 14px;
-    padding: 7px 13px;
+    overflow: hidden;
     border-radius: 999px;
-    border: 1px solid rgba(121, 255, 175, 0.62);
-    background: linear-gradient(135deg, rgba(121, 255, 175, 0.22), rgba(255,255,255,0.045));
-    color: #c9ffdc;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    box-shadow:
-      0 0 20px rgba(121, 255, 175, 0.16),
-      inset 0 0 10px rgba(255,255,255,0.045);
-    vertical-align: middle;
+    background: rgba(255,255,255,0.06);
   }
 
-
-  .certificate-row {
-    background:
-      linear-gradient(90deg, rgba(224, 190, 92, 0.10), rgba(121, 255, 175, 0.045), rgba(255,255,255,0.012)) !important;
-    box-shadow:
-      inset 4px 0 0 rgba(224, 190, 92, 0.88),
-      inset 0 0 0 1px rgba(224, 190, 92, 0.14);
-  }
-
-  .certificate-badge {
-    display: inline-flex;
-    align-items: center;
-    margin-left: 9px;
-    padding: 7px 13px;
-    border-radius: 999px;
-    border: 1px solid rgba(224, 190, 92, 0.72);
-    background: linear-gradient(135deg, rgba(224, 190, 92, 0.24), rgba(255,255,255,0.045));
-    color: #fff0b8;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    white-space: nowrap;
-    box-shadow:
-      0 0 22px rgba(224, 190, 92, 0.16),
-      inset 0 0 10px rgba(255,255,255,0.045);
-    vertical-align: middle;
+  .fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--green);
+    box-shadow: 0 0 16px rgba(121,255,175,.28);
   }
 
   .note {
-    padding: 18px 22px;
+    padding: 17px 22px;
     border-top: 1px solid rgba(255,255,255,0.06);
     color: var(--muted);
     font-size: 13px;
@@ -286,25 +197,19 @@
     body { padding: 16px; }
     .header, .card { border-radius: 18px; }
     thead th, tbody td { padding: 14px 12px; }
-    .name { font-size: 15px; min-width: 280px; }
-    .place, .num { font-size: 16px; width: 64px; }
-    .metric { min-width: 150px; }
-    .cert-badge,
-    .certificate-badge {
-      margin-left: 0;
-      margin-top: 8px;
-      margin-right: 8px;
-      display: inline-flex;
-    }
+    .name { min-width: 240px; font-size: 15px; }
+    .score { width: 120px; }
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 <section class="header">
-<div class="eyebrow">Третий модуль</div>
-<h1><span>SHiLO 50</span><br/>Рейтинг участников второго потока</h1>
-<p class="subtitle">Актуальные накопительные результаты третьего модуля по обновлённой таблице. Рейтинг распределён по сумме основных, дополнительных баллов и показов.</p>
+<div class="eyebrow">1 модуль · 1 неделя</div>
+<h1><span>SHiLO 50</span><br/>Рейтинг участников 3 потока</h1>
+<p class="subtitle">
+      Новый модуль начинается с нуля. Рейтинг сформирован по сумме основных и дополнительных баллов за первую неделю.
+    </p>
 </section>
 <section class="card">
 <div class="table-wrap">
@@ -316,1335 +221,389 @@
 <th>Участник</th>
 <th>Основные</th>
 <th>Дополнительные</th>
-<th>Показы</th>
 <th>Итого</th>
 </tr>
 </thead>
 <tbody>
-<tr class="cert-row certificate-row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
 <td class="place">1</td>
-<td class="num">41</td>
-<td class="name">Паращук Наталья<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">12</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">33</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">2</td>
-<td class="num">27</td>
-<td class="name">Яковенко Надежда<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">31</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">3</td>
-<td class="num">9</td>
-<td class="name">Жукова Елена<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">30</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">4</td>
-<td class="num">16</td>
-<td class="name">Парфенова Екатерина<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">28</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">5</td>
-<td class="num">17</td>
-<td class="name">Петров Александр<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">28</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">6</td>
 <td class="num">6</td>
-<td class="name">Ермилина Светлана<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">11</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">13</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+<td class="name">Кошевец Татьяна</td>
+<td class="score">4</td>
+<td class="score">9</td>
 <td class="total-cell">
-<div class="total-value">27</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">7</td>
-<td class="num">31</td>
-<td class="name">Печерских Ольга<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">13</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
+<div class="fill" style="width:100.00%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">4</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">24</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">8</td>
-<td class="num">32</td>
-<td class="name">Баньковский Павел<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">12</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">24</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">9</td>
-<td class="num">13</td>
-<td class="name">Куклина Татьяна<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">11</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">22</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">10</td>
-<td class="num">21</td>
-<td class="name">Стукова Ирина<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">8</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:80.00%; --c:hsl(100 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:60.00%; --c:hsl(75 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">8</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">22</div>
-<div class="track total-track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">11</td>
-<td class="num">28</td>
-<td class="name">Якушева Ольга<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">12</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">1</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">20</div>
-<div class="track total-track">
-<div class="fill" style="--w:95.24%; --c:hsl(118 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">12</td>
-<td class="num">29</td>
-<td class="name">Юркова Елизавета<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:60.00%; --c:hsl(75 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">20</div>
-<div class="track total-track">
-<div class="fill" style="--w:95.24%; --c:hsl(118 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">13</td>
-<td class="num">39</td>
-<td class="name">Шарова Ирина<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">14</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:60.00%; --c:hsl(75 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">20</div>
-<div class="track total-track">
-<div class="fill" style="--w:95.24%; --c:hsl(118 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">14</td>
-<td class="num">40</td>
-<td class="name">Крюков Михаил<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">4</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">20</div>
-<div class="track total-track">
-<div class="fill" style="--w:95.24%; --c:hsl(118 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">15</td>
+</tr><tr>
+<td class="place">2</td>
 <td class="num">2</td>
-<td class="name">Важенина Ирина<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+<td class="name">Зарянская Наталья</td>
+<td class="score">4</td>
+<td class="score">7</td>
 <td class="total-cell">
-<div class="total-value">19</div>
-<div class="track total-track">
-<div class="fill" style="--w:90.48%; --c:hsl(112 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">16</td>
-<td class="num">1</td>
-<td class="name">Алексеева Наталья<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">12</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">11</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:60.00%; --c:hsl(75 84% 52%);"></div>
-</div>
+<div class="fill" style="width:84.62%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">3</td>
+<td class="num">5</td>
+<td class="name">Корюкова Юлия</td>
+<td class="score">4</td>
+<td class="score">5</td>
 <td class="total-cell">
-<div class="total-value">18</div>
-<div class="track total-track">
-<div class="fill" style="--w:85.71%; --c:hsl(107 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">17</td>
-<td class="num">10</td>
-<td class="name">Каримов Артемий<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">9</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">4</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:40.00%; --c:hsl(51 84% 52%);"></div>
-</div>
+<div class="fill" style="width:69.23%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">4</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">4</td>
+<td class="num">17</td>
+<td class="name">Штирц Ксения</td>
+<td class="score">4</td>
+<td class="score">4</td>
 <td class="total-cell">
-<div class="total-value">17</div>
-<div class="track total-track">
-<div class="fill" style="--w:80.95%; --c:hsl(101 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">18</td>
-<td class="num">38</td>
-<td class="name">Кущак Дмитрий<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">8</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
+<div class="fill" style="width:61.54%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">1</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">5</td>
+<td class="num">19</td>
+<td class="name">Казакова Елена</td>
+<td class="score">4</td>
+<td class="score">4</td>
 <td class="total-cell">
-<div class="total-value">17</div>
-<div class="track total-track">
-<div class="fill" style="--w:80.95%; --c:hsl(101 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">19</td>
-<td class="num">34</td>
-<td class="name">Дербышев Денис<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">8</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:30.00%; --c:hsl(39 84% 52%);"></div>
-</div>
+<div class="fill" style="width:61.54%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">17</div>
-<div class="track total-track">
-<div class="fill" style="--w:80.95%; --c:hsl(101 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">20</td>
-<td class="num">23</td>
-<td class="name">Шикова Лариса<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">16</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">16</div>
-<div class="track total-track">
-<div class="fill" style="--w:76.19%; --c:hsl(95 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">21</td>
-<td class="num">4</td>
-<td class="name">Десятова Альфия<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:50.00%; --c:hsl(63 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">15</div>
-<div class="track total-track">
-<div class="fill" style="--w:71.43%; --c:hsl(89 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">22</td>
+</tr><tr>
+<td class="place">6</td>
 <td class="num">20</td>
-<td class="name">Стрельцова Наталья<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:60.00%; --c:hsl(75 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+<td class="name">Цыпышева Ульяна</td>
+<td class="score">4</td>
+<td class="score">4</td>
 <td class="total-cell">
-<div class="total-value">15</div>
-<div class="track total-track">
-<div class="fill" style="--w:71.43%; --c:hsl(89 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">23</td>
-<td class="num">8</td>
-<td class="name">Завьялова Ирина<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">8</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:50.00%; --c:hsl(63 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:30.00%; --c:hsl(39 84% 52%);"></div>
-</div>
+<div class="fill" style="width:61.54%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">6</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">7</td>
+<td class="num">23</td>
+<td class="name">Конев Олег</td>
+<td class="score">4</td>
+<td class="score">4</td>
 <td class="total-cell">
-<div class="total-value">14</div>
-<div class="track total-track">
-<div class="fill" style="--w:66.67%; --c:hsl(83 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">24</td>
-<td class="num">25</td>
-<td class="name">Черепанова Ольга<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">10</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">8</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:30.00%; --c:hsl(39 84% 52%);"></div>
-</div>
+<div class="fill" style="width:61.54%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">1</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">14</div>
-<div class="track total-track">
-<div class="fill" style="--w:66.67%; --c:hsl(83 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">25</td>
+</tr><tr>
+<td class="place">8</td>
 <td class="num">3</td>
-<td class="name">Горбунова Надежда<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:30.00%; --c:hsl(39 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+<td class="name">Золотавина Софья</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">12</div>
-<div class="track total-track">
-<div class="fill" style="--w:57.14%; --c:hsl(72 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">26</td>
-<td class="num">14</td>
-<td class="name">Лазорик Юлия<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">11</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">9</td>
+<td class="num">10</td>
+<td class="name">Парфенова Екатерина</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">11</div>
-<div class="track total-track">
-<div class="fill" style="--w:52.38%; --c:hsl(66 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">27</td>
-<td class="num">18</td>
-<td class="name">Пахаренко Ирина<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">4</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:40.00%; --c:hsl(51 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">7</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:70.00%; --c:hsl(87 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">10</td>
+<td class="num">11</td>
+<td class="name">Романцова Алена</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">11</div>
-<div class="track total-track">
-<div class="fill" style="--w:52.38%; --c:hsl(66 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">28</td>
-<td class="num">7</td>
-<td class="name">Ершова Валентина<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:50.00%; --c:hsl(63 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:20.00%; --c:hsl(26 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">11</td>
+<td class="num">12</td>
+<td class="name">Стрельцова Наталья</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">9</div>
-<div class="track total-track">
-<div class="fill" style="--w:42.86%; --c:hsl(54 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">29</td>
-<td class="num">24</td>
-<td class="name">Черепанова Елена<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">9</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:90.00%; --c:hsl(112 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">12</td>
+<td class="num">13</td>
+<td class="name">Утробина Марина</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">9</div>
-<div class="track total-track">
-<div class="fill" style="--w:42.86%; --c:hsl(54 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">30</td>
-<td class="num">33</td>
-<td class="name">Утробина Марина<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Близко к цели">
-<div class="metric-line">
-<span class="value">8</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:80.00%; --c:hsl(100 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">8</div>
-<div class="track total-track">
-<div class="fill" style="--w:38.10%; --c:hsl(48 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">31</td>
-<td class="num">37</td>
-<td class="name">Аксенова Юля<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Середина пути">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:50.00%; --c:hsl(63 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">3</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:30.00%; --c:hsl(39 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td class="total-cell">
-<div class="total-value">8</div>
-<div class="track total-track">
-<div class="fill" style="--w:38.10%; --c:hsl(48 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row certificate-row">
-<td class="place">32</td>
+</tr><tr>
+<td class="place">13</td>
 <td class="num">15</td>
-<td class="name">Марченко Юлия<span class="cert-badge">Аттестация сдана</span><span class="certificate-badge">Получает свидетельство</span></td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Цель выполнена">
-<div class="metric-line">
-<span class="value">5</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:100.00%; --c:hsl(124 84% 52%);"></div>
-</div>
-</div>
-</td>
+<td class="name">Черныш Николай</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">5</div>
-<div class="track total-track">
-<div class="fill" style="--w:23.81%; --c:hsl(31 84% 52%);"></div>
-</div>
-</td>
-</tr><tr class="cert-row">
-<td class="place">33</td>
-<td class="num">26</td>
-<td class="name">Яковенко Ирина<span class="cert-badge">Аттестация сдана</span></td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">2</span><span class="goal">/10</span>
+<div class="total-line">
+<span class="total-value">7</span>
 </div>
 <div class="track">
-<div class="fill" style="--w:20.00%; --c:hsl(26 84% 52%);"></div>
-</div>
-</div>
-</td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/10</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
+<div class="fill" style="width:53.85%"></div>
 </div>
 </td>
-<td>
-<div class="metric" title="Старт модуля">
-<div class="metric-line">
-<span class="value">0</span><span class="goal">/1</span>
-</div>
-<div class="track">
-<div class="fill" style="--w:0.00%; --c:hsl(2 84% 52%);"></div>
-</div>
-</div>
-</td>
+</tr><tr>
+<td class="place">14</td>
+<td class="num">18</td>
+<td class="name">Юркова Елизавета</td>
+<td class="score">4</td>
+<td class="score">3</td>
 <td class="total-cell">
-<div class="total-value">2</div>
-<div class="track total-track">
-<div class="fill" style="--w:9.52%; --c:hsl(14 84% 52%);"></div>
+<div class="total-line">
+<span class="total-value">7</span>
+</div>
+<div class="track">
+<div class="fill" style="width:53.85%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">15</td>
+<td class="num">7</td>
+<td class="name">Кухаренко Ульяна</td>
+<td class="score">4</td>
+<td class="score">2</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">6</span>
+</div>
+<div class="track">
+<div class="fill" style="width:46.15%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">16</td>
+<td class="num">16</td>
+<td class="name">Щукин Кирил</td>
+<td class="score">4</td>
+<td class="score">2</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">6</span>
+</div>
+<div class="track">
+<div class="fill" style="width:46.15%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">17</td>
+<td class="num">22</td>
+<td class="name">Кожевникова Ирина</td>
+<td class="score">4</td>
+<td class="score">2</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">6</span>
+</div>
+<div class="track">
+<div class="fill" style="width:46.15%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">18</td>
+<td class="num">1</td>
+<td class="name">Долгерт Александра</td>
+<td class="score">0</td>
+<td class="score">5</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">19</td>
+<td class="num">4</td>
+<td class="name">Корюкова Юлианна</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">20</td>
+<td class="num">8</td>
+<td class="name">Медведева Ольга</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">21</td>
+<td class="num">9</td>
+<td class="name">Ненашев Артём</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">22</td>
+<td class="num">14</td>
+<td class="name">Феклина Татьяна</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">23</td>
+<td class="num">21</td>
+<td class="name">Цивилева Эльмира</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">24</td>
+<td class="num">24</td>
+<td class="name">Никатин Кирилл</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
+</div>
+</td>
+</tr><tr>
+<td class="place">25</td>
+<td class="num">25</td>
+<td class="name">Барашкова Юля</td>
+<td class="score">4</td>
+<td class="score">1</td>
+<td class="total-cell">
+<div class="total-line">
+<span class="total-value">5</span>
+</div>
+<div class="track">
+<div class="fill" style="width:38.46%"></div>
 </div>
 </td>
 </tr></tbody>
 </table>
 </div>
-<div class="note">Все участники прошли аттестацию. Пометка «Получает свидетельство» установлена участникам с двумя показами и более.</div>
+<div class="note">Всего участников: 25. Данные — 1 модуль, 1 неделя.</div>
 </section>
 </div>
 </body>
