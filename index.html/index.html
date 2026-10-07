@@ -1,124 +1,412 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>SHiLO 50 — 3 поток · 1 модуль · 4 неделя</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHiLO 50 — рейтинг участников</title>
 <style>
 :root {
-  --bg:#050605; --bg2:#0a0c0a; --panel:rgba(255,255,255,.045);
-  --panel2:rgba(255,255,255,.025); --line:rgba(255,255,255,.075);
-  --lineg:rgba(120,255,170,.18); --text:#f7f8f4; --muted:rgba(247,248,244,.58);
-  --green:#79ffaf; --shadow:0 22px 70px rgba(0,0,0,.52); --radius:24px;
+  --bg:#050505;
+  --panel:#0b0d0a;
+  --line:#263019;
+  --text:#ffffff;
+  --muted:#a7afa0;
+  --lime:#A8E800;
+  --lime2:#C6FF00;
 }
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%}
-body{
-  font-family:Inter,Arial,Helvetica,sans-serif;
+* { box-sizing:border-box; }
+body {
+  margin:0;
   background:
-    radial-gradient(circle at 84% 0%,rgba(121,255,175,.08),transparent 26%),
-    radial-gradient(circle at 0% 0%,rgba(121,255,175,.045),transparent 24%),
-    linear-gradient(180deg,var(--bg2),var(--bg));
-  color:var(--text);padding:28px;
+    radial-gradient(circle at 20% 0%, rgba(168,232,0,.10), transparent 34%),
+    radial-gradient(circle at 90% 15%, rgba(198,255,0,.06), transparent 30%),
+    var(--bg);
+  color:var(--text);
+  font-family: Inter, Arial, Helvetica, sans-serif;
 }
-.wrap{max-width:1360px;margin:0 auto}
-.header{
-  margin-bottom:18px;padding:28px 30px;border-radius:var(--radius);
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025)),
-    radial-gradient(circle at 88% 10%,rgba(121,255,175,.10),transparent 32%);
-  border:1px solid var(--lineg);box-shadow:var(--shadow);backdrop-filter:blur(14px)
+.wrap {
+  max-width:1180px;
+  margin:0 auto;
+  padding:48px 24px 64px;
 }
-.eyebrow{
-  display:inline-flex;margin-bottom:14px;padding:8px 13px;border-radius:999px;
-  border:1px solid rgba(121,255,175,.28);background:rgba(121,255,175,.06);
-  color:var(--green);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase
+.hero {
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(168,232,0,.055), rgba(255,255,255,.01));
+  border-radius:28px;
+  padding:32px 34px;
 }
-h1{margin:0;font-weight:800;font-size:clamp(30px,4.2vw,52px);line-height:1.02;letter-spacing:.025em;text-transform:uppercase}
-h1 span{color:var(--green);font-weight:900}
-.subtitle{margin:14px 0 0;color:var(--muted);font-size:15px;line-height:1.55}
-.card{border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--lineg);box-shadow:var(--shadow);backdrop-filter:blur(14px)}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;min-width:930px}
-thead th{text-align:left;padding:18px;font-size:12px;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--muted);background:rgba(255,255,255,.025);border-bottom:1px solid var(--line);position:sticky;top:0}
-tbody td{padding:16px 18px;border-top:1px solid rgba(255,255,255,.05);vertical-align:middle}
-tbody tr:hover{background:rgba(255,255,255,.025)}
-.place{width:78px;font-size:18px;font-weight:800}
-.num{width:72px;color:var(--green);font-size:17px;font-weight:750}
-.name{min-width:350px;font-size:17px;font-weight:650}
-.name-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.badge{display:inline-flex;padding:6px 10px;border-radius:999px;background:rgba(121,255,175,.12);border:1px solid rgba(121,255,175,.45);color:var(--green);font-size:11px;font-weight:850;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
-.score{width:150px;font-size:18px;font-weight:750}
-.total-cell{min-width:180px}
-.total-line{margin-bottom:9px}
-.total-value{color:var(--green);font-size:21px;font-weight:900}
-.track{width:100%;height:7px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.06)}
-.fill{height:100%;border-radius:inherit;background:var(--green);box-shadow:0 0 16px rgba(121,255,175,.28)}
-.note{padding:17px 22px;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);font-size:13px;line-height:1.45;background:rgba(255,255,255,.015)}
-@media(max-width:900px){
-  body{padding:16px}
-  .header,.card{border-radius:18px}
-  thead th,tbody td{padding:14px 12px}
-  .name{min-width:260px;font-size:15px}
-  .score{width:120px}
+.eyebrow {
+  color:var(--lime);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+h1 {
+  margin:0;
+  font-size:clamp(34px,6vw,70px);
+  line-height:.98;
+  letter-spacing:-.04em;
+}
+h1 span { color:var(--lime); }
+.subtitle {
+  margin:18px 0 0;
+  color:var(--muted);
+  font-size:16px;
+  line-height:1.5;
+  max-width:780px;
+}
+.table-wrap {
+  margin-top:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  overflow:hidden;
+  background:rgba(8,10,7,.94);
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+thead th {
+  background:#10140c;
+  color:#dfe7d6;
+  font-size:12px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  text-align:left;
+  padding:16px 14px;
+  border-bottom:1px solid var(--line);
+}
+tbody td {
+  padding:15px 14px;
+  border-bottom:1px solid #1c2415;
+  vertical-align:middle;
+}
+tbody tr:last-child td { border-bottom:0; }
+tbody tr:hover { background:rgba(168,232,0,.035); }
+.place,.num,.score { text-align:center; width:90px; }
+.name { font-weight:700; }
+.total-cell { min-width:180px; }
+.total-line { margin-bottom:8px; }
+.total-value {
+  font-size:20px;
+  font-weight:900;
+  color:var(--lime);
+}
+.track {
+  height:7px;
+  background:#1d2517;
+  border-radius:999px;
+  overflow:hidden;
+}
+.fill {
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--lime),var(--lime2));
+}
+.note {
+  margin-top:14px;
+  color:var(--muted);
+  font-size:13px;
+}
+@media (max-width:760px) {
+  .wrap { padding:24px 12px 40px; }
+  .hero { padding:24px 20px; border-radius:20px; }
+  .table-wrap { overflow-x:auto; border-radius:18px; }
+  table { min-width:760px; }
 }
 </style>
 </head>
 <body>
 <div class="wrap">
-<section class="header">
-  <div class="eyebrow">3 поток · 1 модуль · 4 неделя</div>
-  <h1><span>SHiLO 50</span><br/>Рейтинг участников</h1>
-  <p class="subtitle">Рейтинг сформирован по текущим основным и накопленным дополнительным баллам. Плашка «Аттестация пройдена» появляется при 10 основных и 20 дополнительных баллах.</p>
-</section>
-
-<section class="card">
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-  <th>Место</th>
-  <th>№</th>
-  <th>Участник</th>
-  <th>Основные</th>
-  <th>Дополнительные</th>
-  <th>Итого</th>
-</tr>
-</thead>
-<tbody>
-<tr><td class="place">1</td><td class="num">19</td><td class="name"><div class="name-line"><span>Казакова Елена</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">86</td><td class="total-cell"><div class="total-line"><span class="total-value">102</span></div><div class="track"><div class="fill" style="width:100.00%"></div></div></td></tr>
-<tr><td class="place">2</td><td class="num">20</td><td class="name"><div class="name-line"><span>Цыпышева Ульяна</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">85</td><td class="total-cell"><div class="total-line"><span class="total-value">101</span></div><div class="track"><div class="fill" style="width:99.02%"></div></div></td></tr>
-<tr><td class="place">3</td><td class="num">22</td><td class="name"><div class="name-line"><span>Кожевникова Ирина</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">85</td><td class="total-cell"><div class="total-line"><span class="total-value">101</span></div><div class="track"><div class="fill" style="width:99.02%"></div></div></td></tr>
-<tr><td class="place">4</td><td class="num">10</td><td class="name"><div class="name-line"><span>Парфенова Екатерина</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">82</td><td class="total-cell"><div class="total-line"><span class="total-value">98</span></div><div class="track"><div class="fill" style="width:96.08%"></div></div></td></tr>
-<tr><td class="place">5</td><td class="num">7</td><td class="name"><div class="name-line"><span>Кухаренко Ульяна</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">10</td><td class="score">76</td><td class="total-cell"><div class="total-line"><span class="total-value">86</span></div><div class="track"><div class="fill" style="width:84.31%"></div></div></td></tr>
-<tr><td class="place">6</td><td class="num">24</td><td class="name"><div class="name-line"><span>Никитин Кирилл</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">56</td><td class="total-cell"><div class="total-line"><span class="total-value">72</span></div><div class="track"><div class="fill" style="width:70.59%"></div></div></td></tr>
-<tr><td class="place">7</td><td class="num">21</td><td class="name"><div class="name-line"><span>Цивилева Эльмира</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">12</td><td class="score">52</td><td class="total-cell"><div class="total-line"><span class="total-value">64</span></div><div class="track"><div class="fill" style="width:62.75%"></div></div></td></tr>
-<tr><td class="place">8</td><td class="num">13</td><td class="name"><div class="name-line"><span>Утробина Марина</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">48</td><td class="total-cell"><div class="total-line"><span class="total-value">64</span></div><div class="track"><div class="fill" style="width:62.75%"></div></div></td></tr>
-<tr><td class="place">9</td><td class="num">3</td><td class="name"><div class="name-line"><span>Золотавина Софья</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">14</td><td class="score">48</td><td class="total-cell"><div class="total-line"><span class="total-value">62</span></div><div class="track"><div class="fill" style="width:60.78%"></div></div></td></tr>
-<tr><td class="place">10</td><td class="num">4</td><td class="name"><div class="name-line"><span>Корюкова Юлианна</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">45</td><td class="total-cell"><div class="total-line"><span class="total-value">61</span></div><div class="track"><div class="fill" style="width:59.80%"></div></div></td></tr>
-<tr><td class="place">11</td><td class="num">25</td><td class="name"><div class="name-line"><span>Барашкова Юля</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">44</td><td class="total-cell"><div class="total-line"><span class="total-value">60</span></div><div class="track"><div class="fill" style="width:58.82%"></div></div></td></tr>
-<tr><td class="place">12</td><td class="num">12</td><td class="name"><div class="name-line"><span>Стрельцова Наталья</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">42</td><td class="total-cell"><div class="total-line"><span class="total-value">58</span></div><div class="track"><div class="fill" style="width:56.86%"></div></div></td></tr>
-<tr><td class="place">13</td><td class="num">17</td><td class="name"><div class="name-line"><span>Штирц Ксения</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">41</td><td class="total-cell"><div class="total-line"><span class="total-value">57</span></div><div class="track"><div class="fill" style="width:55.88%"></div></div></td></tr>
-<tr><td class="place">14</td><td class="num">2</td><td class="name"><div class="name-line"><span>Зарянская Наталья</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">39</td><td class="total-cell"><div class="total-line"><span class="total-value">55</span></div><div class="track"><div class="fill" style="width:53.92%"></div></div></td></tr>
-<tr><td class="place">15</td><td class="num">6</td><td class="name"><div class="name-line"><span>Кошевец Татьяна</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">14</td><td class="score">33</td><td class="total-cell"><div class="total-line"><span class="total-value">47</span></div><div class="track"><div class="fill" style="width:46.08%"></div></div></td></tr>
-<tr><td class="place">16</td><td class="num">11</td><td class="name"><div class="name-line"><span>Романцова Алена</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">29</td><td class="total-cell"><div class="total-line"><span class="total-value">45</span></div><div class="track"><div class="fill" style="width:44.12%"></div></div></td></tr>
-<tr><td class="place">17</td><td class="num">15</td><td class="name"><div class="name-line"><span>Черныш Николай</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">29</td><td class="total-cell"><div class="total-line"><span class="total-value">45</span></div><div class="track"><div class="fill" style="width:44.12%"></div></div></td></tr>
-<tr><td class="place">18</td><td class="num">5</td><td class="name"><div class="name-line"><span>Корюкова Юлия</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">28</td><td class="total-cell"><div class="total-line"><span class="total-value">44</span></div><div class="track"><div class="fill" style="width:43.14%"></div></div></td></tr>
-<tr><td class="place">19</td><td class="num">18</td><td class="name"><div class="name-line"><span>Юркова Елизавета</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">26</td><td class="total-cell"><div class="total-line"><span class="total-value">42</span></div><div class="track"><div class="fill" style="width:41.18%"></div></div></td></tr>
-<tr><td class="place">20</td><td class="num">8</td><td class="name"><div class="name-line"><span>Медведева Ольга</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">14</td><td class="score">22</td><td class="total-cell"><div class="total-line"><span class="total-value">36</span></div><div class="track"><div class="fill" style="width:35.29%"></div></div></td></tr>
-<tr><td class="place">21</td><td class="num">14</td><td class="name"><div class="name-line"><span>Феклина Татьяна</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">16</td><td class="score">20</td><td class="total-cell"><div class="total-line"><span class="total-value">36</span></div><div class="track"><div class="fill" style="width:35.29%"></div></div></td></tr>
-<tr><td class="place">22</td><td class="num">1</td><td class="name"><div class="name-line"><span>Долгерт Александра</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">14</td><td class="score">20</td><td class="total-cell"><div class="total-line"><span class="total-value">34</span></div><div class="track"><div class="fill" style="width:33.33%"></div></div></td></tr>
-<tr><td class="place">23</td><td class="num">16</td><td class="name"><div class="name-line"><span>Щукин Кирил</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">12</td><td class="score">20</td><td class="total-cell"><div class="total-line"><span class="total-value">32</span></div><div class="track"><div class="fill" style="width:31.37%"></div></div></td></tr>
-<tr><td class="place">24</td><td class="num">26</td><td class="name"><div class="name-line"><span>Лисицкая Ольга</span></div></td><td class="score">12</td><td class="score">18</td><td class="total-cell"><div class="total-line"><span class="total-value">30</span></div><div class="track"><div class="fill" style="width:29.41%"></div></div></td></tr>
-<tr><td class="place">25</td><td class="num">23</td><td class="name"><div class="name-line"><span>Конев Олег</span></div></td><td class="score">10</td><td class="score">7</td><td class="total-cell"><div class="total-line"><span class="total-value">17</span></div><div class="track"><div class="fill" style="width:16.67%"></div></div></td></tr>
-<tr><td class="place">26</td><td class="num">9</td><td class="name"><div class="name-line"><span>Ненашев Артём</span></div></td><td class="score">8</td><td class="score">6</td><td class="total-cell"><div class="total-line"><span class="total-value">14</span></div><div class="track"><div class="fill" style="width:13.73%"></div></div></td></tr>
-<tr><td class="place">27</td><td class="num">27</td><td class="name"><div class="name-line"><span>Веденев Кирилл</span></div></td><td class="score">0</td><td class="score">0</td><td class="total-cell"><div class="total-line"><span class="total-value">0</span></div><div class="track"><div class="fill" style="width:0.00%"></div></div></td></tr>
-</tbody>
-</table>
-</div>
-<div class="note">Всего участников: 27. SHiLO 50 · 3 поток · 1 модуль · 4 неделя.</div>
-</section>
+  <section class="hero">
+    <div class="eyebrow">SHiLO 50 · 3 поток</div>
+    <h1>Текущий <span>рейтинг</span></h1>
+    <p class="subtitle">У каждого участника из текущего списка Google-таблицы — 4 основных балла. Дополнительные баллы пока равны 0.</p>
+  </section>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="place">Место</th>
+          <th class="num">№</th>
+          <th>Участник</th>
+          <th class="score">Основные</th>
+          <th class="score">Дополнительные</th>
+          <th>Итого</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+      <tr>
+        <td class="place">1</td>
+        <td class="num">1</td>
+        <td class="name">Долгерт Александра</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">2</td>
+        <td class="num">2</td>
+        <td class="name">Зарянская Наталья</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">3</td>
+        <td class="num">3</td>
+        <td class="name">Золотавина Софья</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">4</td>
+        <td class="num">4</td>
+        <td class="name">Корюкова Юлианна</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">5</td>
+        <td class="num">5</td>
+        <td class="name">Корюкова Юлия</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">6</td>
+        <td class="num">6</td>
+        <td class="name">Кошевец Татьяна</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">7</td>
+        <td class="num">7</td>
+        <td class="name">Кухаренко Ульяна</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">8</td>
+        <td class="num">8</td>
+        <td class="name">Медведева Ольга</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">9</td>
+        <td class="num">10</td>
+        <td class="name">Парфенова Екатерина</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">10</td>
+        <td class="num">11</td>
+        <td class="name">Романцова Алена</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">11</td>
+        <td class="num">12</td>
+        <td class="name">Стрельцова Наталья</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">12</td>
+        <td class="num">13</td>
+        <td class="name">Утробина Марина</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">13</td>
+        <td class="num">14</td>
+        <td class="name">Феклина Татьяна</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">14</td>
+        <td class="num">15</td>
+        <td class="name">Черныш Николай</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">15</td>
+        <td class="num">16</td>
+        <td class="name">Щукин Кирил</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">16</td>
+        <td class="num">17</td>
+        <td class="name">Штирц Ксения</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">17</td>
+        <td class="num">18</td>
+        <td class="name">Юркова Елизавета</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">18</td>
+        <td class="num">19</td>
+        <td class="name">Казакова Елена</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">19</td>
+        <td class="num">20</td>
+        <td class="name">Цыпышева Ульяна</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">20</td>
+        <td class="num">21</td>
+        <td class="name">Цивилева Эльмира</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">21</td>
+        <td class="num">22</td>
+        <td class="name">Кожевникова Ирина</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">22</td>
+        <td class="num">24</td>
+        <td class="name">Никитин Кирилл</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">23</td>
+        <td class="num">25</td>
+        <td class="name">Барашкова Юля</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="place">24</td>
+        <td class="num">26</td>
+        <td class="name">Лисицкая Ольга</td>
+        <td class="score">4</td>
+        <td class="score">0</td>
+        <td class="total-cell">
+          <div class="total-line"><span class="total-value">4</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">В текущей Google-таблице заполнены имена 24 участников. Строки № 9, 23 и 27 сейчас без ФИО, поэтому в рейтинг не включены.</div>
 </div>
 </body>
 </html>
