@@ -1,169 +1,39 @@
-
-
-<!DOCTYPE html>
-
-<html lang="ru">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>SHiLO 50 — 3 поток · 3 модуль · 2 неделя</title>
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SHiLO 50 — сервис рейтинга и аттестации</title>
 <style>
-:root {
-  --bg:#050505;
-  --panel:#0b0d0a;
-  --line:#263019;
-  --text:#ffffff;
-  --muted:#a7afa0;
-  --lime:#A8E800;
-  --lime2:#C6FF00;
-}
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  background:
-    radial-gradient(circle at 20% 0%, rgba(168,232,0,.10), transparent 34%),
-    radial-gradient(circle at 90% 15%, rgba(198,255,0,.06), transparent 30%),
-    var(--bg);
-  color:var(--text);
-  font-family: Inter, Arial, Helvetica, sans-serif;
-}
-.wrap {
-  max-width:1180px;
-  margin:0 auto;
-  padding:48px 24px 64px;
-}
-.hero {
-  border:1px solid var(--line);
-  background:linear-gradient(180deg, rgba(168,232,0,.055), rgba(255,255,255,.01));
-  border-radius:28px;
-  padding:32px 34px;
-}
-.eyebrow {
-  color:var(--lime);
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
-h1 {
-  margin:0;
-  font-size:clamp(34px,6vw,70px);
-  line-height:.98;
-  letter-spacing:-.04em;
-}
-h1 span { color:var(--lime); }
-.subtitle {
-  margin:18px 0 0;
-  color:var(--muted);
-  font-size:16px;
-  line-height:1.5;
-  max-width:780px;
-}
-.table-wrap {
-  margin-top:24px;
-  border:1px solid var(--line);
-  border-radius:24px;
-  overflow:hidden;
-  background:rgba(8,10,7,.94);
-}
-table {
-  width:100%;
-  border-collapse:collapse;
-}
-thead th {
-  background:#10140c;
-  color:#dfe7d6;
-  font-size:12px;
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  text-align:left;
-  padding:16px 14px;
-  border-bottom:1px solid var(--line);
-}
-tbody td {
-  padding:15px 14px;
-  border-bottom:1px solid #1c2415;
-  vertical-align:middle;
-}
-tbody tr:last-child td { border-bottom:0; }
-tbody tr:hover { background:rgba(168,232,0,.035); }
-.place,.num,.score { text-align:center; width:90px; }
-.name { font-weight:700; }
-.total-cell { min-width:180px; }
-.total-line { margin-bottom:8px; }
-.total-value {
-  font-size:20px;
-  font-weight:900;
-  color:var(--lime);
-}
-.track {
-  height:7px;
-  background:#1d2517;
-  border-radius:999px;
-  overflow:hidden;
-}
-.fill {
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--lime),var(--lime2));
-}
-.note {
-  margin-top:14px;
-  color:var(--muted);
-  font-size:13px;
-}
-@media (max-width:760px) {
-  .wrap { padding:24px 12px 40px; }
-  .hero { padding:24px 20px; border-radius:20px; }
-  .table-wrap { overflow-x:auto; border-radius:18px; }
-  table { min-width:760px; }
-}
-
-.badge {
-  display:inline-block;
-  margin-left:10px;
-  padding:4px 9px;
-  border-radius:999px;
-  background:rgba(168,232,0,.12);
-  border:1px solid rgba(168,232,0,.35);
-  color:#C6FF00;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.04em;
-  white-space:nowrap;
-}
-.name-line {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-<section class="hero">
-<div class="eyebrow">SHiLO 50 · 3 поток · 3 модуль · 2 неделя</div>
-<h1>Рейтинг <span>третьего модуля</span></h1>
-<p class="subtitle">Вторая неделя третьего модуля. Основные и дополнительные баллы прибавлены к накопленным результатам первой недели.</p>
-</section>
-<div class="table-wrap">
-<table>
-<thead>
-<tr>
-<th class="place">Место</th>
-<th class="num">№</th>
-<th>Участник</th>
-<th class="score">Основные</th>
-<th class="score">Дополнительные</th>
-<th>Итого</th>
-</tr>
-</thead>
-<tbody><tr><td class="place">1</td><td class="num">22</td><td class="name"><div class="name-line"><span>Кожевникова Ирина</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">12</td><td class="score">22</td><td class="total-cell"><div class="total-line"><span class="total-value">34</span></div><div class="track"><div class="fill" style="width:100.00%"></div></div></td></tr><tr><td class="place">2</td><td class="num">5</td><td class="name"><div class="name-line"><span>Корюкова Юлия</span><span class="badge">Аттестация пройдена</span></div></td><td class="score">12</td><td class="score">20</td><td class="total-cell"><div class="total-line"><span class="total-value">32</span></div><div class="track"><div class="fill" style="width:100.00%"></div></div></td></tr><tr><td class="place">3</td><td class="num">2</td><td class="name"><div class="name-line"><span>Зарянская Наталья</span></div></td><td class="score">12</td><td class="score">17</td><td class="total-cell"><div class="total-line"><span class="total-value">29</span></div><div class="track"><div class="fill" style="width:90.62%"></div></div></td></tr><tr><td class="place">4</td><td class="num">25</td><td class="name"><div class="name-line"><span>Барашкова Юля</span></div></td><td class="score">12</td><td class="score">16</td><td class="total-cell"><div class="total-line"><span class="total-value">28</span></div><div class="track"><div class="fill" style="width:87.50%"></div></div></td></tr><tr><td class="place">5</td><td class="num">13</td><td class="name"><div class="name-line"><span>Утробина Марина</span></div></td><td class="score">12</td><td class="score">15</td><td class="total-cell"><div class="total-line"><span class="total-value">27</span></div><div class="track"><div class="fill" style="width:84.38%"></div></div></td></tr><tr><td class="place">6</td><td class="num">18</td><td class="name"><div class="name-line"><span>Юркова Елизавета</span></div></td><td class="score">12</td><td class="score">15</td><td class="total-cell"><div class="total-line"><span class="total-value">27</span></div><div class="track"><div class="fill" style="width:84.38%"></div></div></td></tr><tr><td class="place">7</td><td class="num">3</td><td class="name"><div class="name-line"><span>Золотавина Софья</span></div></td><td class="score">9</td><td class="score">17</td><td class="total-cell"><div class="total-line"><span class="total-value">26</span></div><div class="track"><div class="fill" style="width:81.25%"></div></div></td></tr><tr><td class="place">8</td><td class="num">11</td><td class="name"><div class="name-line"><span>Романцова Алена</span></div></td><td class="score">12</td><td class="score">14</td><td class="total-cell"><div class="total-line"><span class="total-value">26</span></div><div class="track"><div class="fill" style="width:81.25%"></div></div></td></tr><tr><td class="place">9</td><td class="num">10</td><td class="name"><div class="name-line"><span>Парфенова Екатерина</span></div></td><td class="score">12</td><td class="score">13</td><td class="total-cell"><div class="total-line"><span class="total-value">25</span></div><div class="track"><div class="fill" style="width:78.12%"></div></div></td></tr><tr><td class="place">10</td><td class="num">15</td><td class="name"><div class="name-line"><span>Черныш Николай</span></div></td><td class="score">10</td><td class="score">14</td><td class="total-cell"><div class="total-line"><span class="total-value">24</span></div><div class="track"><div class="fill" style="width:75.00%"></div></div></td></tr><tr><td class="place">11</td><td class="num">12</td><td class="name"><div class="name-line"><span>Стрельцова Наталья</span></div></td><td class="score">10</td><td class="score">13</td><td class="total-cell"><div class="total-line"><span class="total-value">23</span></div><div class="track"><div class="fill" style="width:71.88%"></div></div></td></tr><tr><td class="place">12</td><td class="num">24</td><td class="name"><div class="name-line"><span>Никитин Кирилл</span></div></td><td class="score">5</td><td class="score">17</td><td class="total-cell"><div class="total-line"><span class="total-value">22</span></div><div class="track"><div class="fill" style="width:68.75%"></div></div></td></tr><tr><td class="place">13</td><td class="num">19</td><td class="name"><div class="name-line"><span>Казакова Елена</span></div></td><td class="score">10</td><td class="score">11</td><td class="total-cell"><div class="total-line"><span class="total-value">21</span></div><div class="track"><div class="fill" style="width:65.62%"></div></div></td></tr><tr><td class="place">14</td><td class="num">14</td><td class="name"><div class="name-line"><span>Феклина Татьяна</span></div></td><td class="score">10</td><td class="score">10</td><td class="total-cell"><div class="total-line"><span class="total-value">20</span></div><div class="track"><div class="fill" style="width:62.50%"></div></div></td></tr><tr><td class="place">15</td><td class="num">20</td><td class="name"><div class="name-line"><span>Цыпышева Ульяна</span></div></td><td class="score">7</td><td class="score">10</td><td class="total-cell"><div class="total-line"><span class="total-value">17</span></div><div class="track"><div class="fill" style="width:53.12%"></div></div></td></tr><tr><td class="place">16</td><td class="num">8</td><td class="name"><div class="name-line"><span>Медведева Ольга</span></div></td><td class="score">12</td><td class="score">5</td><td class="total-cell"><div class="total-line"><span class="total-value">17</span></div><div class="track"><div class="fill" style="width:53.12%"></div></div></td></tr><tr><td class="place">17</td><td class="num">21</td><td class="name"><div class="name-line"><span>Цивилева Эльмира</span></div></td><td class="score">9</td><td class="score">7</td><td class="total-cell"><div class="total-line"><span class="total-value">16</span></div><div class="track"><div class="fill" style="width:50.00%"></div></div></td></tr><tr><td class="place">18</td><td class="num">1</td><td class="name"><div class="name-line"><span>Долгерт Александра</span></div></td><td class="score">10</td><td class="score">4</td><td class="total-cell"><div class="total-line"><span class="total-value">14</span></div><div class="track"><div class="fill" style="width:43.75%"></div></div></td></tr><tr><td class="place">19</td><td class="num">7</td><td class="name"><div class="name-line"><span>Кухаренко Ульяна</span></div></td><td class="score">12</td><td class="score">0</td><td class="total-cell"><div class="total-line"><span class="total-value">12</span></div><div class="track"><div class="fill" style="width:37.50%"></div></div></td></tr><tr><td class="place">20</td><td class="num">26</td><td class="name"><div class="name-line"><span>Лисицкая Ольга</span></div></td><td class="score">5</td><td class="score">5</td><td class="total-cell"><div class="total-line"><span class="total-value">10</span></div><div class="track"><div class="fill" style="width:31.25%"></div></div></td></tr><tr><td class="place">21</td><td class="num">4</td><td class="name"><div class="name-line"><span>Корюкова Юлианна</span></div></td><td class="score">7</td><td class="score">1</td><td class="total-cell"><div class="total-line"><span class="total-value">8</span></div><div class="track"><div class="fill" style="width:25.00%"></div></div></td></tr><tr><td class="place">22</td><td class="num">17</td><td class="name"><div class="name-line"><span>Штирц Ксения</span></div></td><td class="score">7</td><td class="score">1</td><td class="total-cell"><div class="total-line"><span class="total-value">8</span></div><div class="track"><div class="fill" style="width:25.00%"></div></div></td></tr><tr><td class="place">23</td><td class="num">6</td><td class="name"><div class="name-line"><span>Кошевец Татьяна</span></div></td><td class="score">7</td><td class="score">0</td><td class="total-cell"><div class="total-line"><span class="total-value">7</span></div><div class="track"><div class="fill" style="width:21.88%"></div></div></td></tr></tbody>
-</table>
-</div>
-<div class="note">Аттестация пройдена — при наличии не менее 10 основных и 20 дополнительных баллов.</div>
-</div>
-</body>
-</html>
+:root{--bg:#070907;--panel:#10140e;--panel2:#151b10;--line:#303b25;--text:#f5f8ee;--muted:#a9b3a3;--lime:#b5f21b;--lime2:#d9ff61;--red:#ff9b92}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#24340f 0,transparent 39%),var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}.container{max-width:1260px;margin:auto;padding:28px 20px 70px}.mast{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}.brand{color:var(--lime);font-weight:900;letter-spacing:.15em;font-size:14px}.status{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:13px}.dot{height:8px;width:8px;background:var(--lime);border-radius:50%}.hero{border:1px solid var(--line);border-radius:25px;padding:30px;background:linear-gradient(115deg,#1a2710,#10160e 64%,#0d100c)}h1{margin:5px 0 10px;font-size:clamp(30px,4.5vw,56px);line-height:1.07;letter-spacing:-.04em}h1 b{color:var(--lime)}p{margin:0}.sub{color:var(--muted);max-width:750px}.pill{display:inline-block;border:1px solid #506e26;background:#263c10;padding:5px 11px;border-radius:50px;color:var(--lime2);font-size:12px;font-weight:700}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 22px}.stat{border:1px solid var(--line);border-radius:17px;padding:16px 18px;background:var(--panel)}.stat strong{display:block;font-size:29px;color:var(--lime);line-height:1.25}.stat span{font-size:12px;color:var(--muted)}.toolbar{display:flex;gap:11px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.search{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:11px 14px;flex:1;min-width:200px;max-width:360px}.filter{background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:11px}.button{border:1px solid #556a36;background:var(--panel2);color:var(--text);border-radius:12px;padding:10px 14px;font-weight:650}.button.primary{background:var(--lime);color:#0d1408;border-color:var(--lime)}.button:hover{filter:brightness(1.16)}.tablewrap{overflow-x:auto;background:#0c0e0a;border:1px solid var(--line);border-radius:20px}table{width:100%;border-collapse:collapse;min-width:780px}th{text-align:left;background:#161d10;text-transform:uppercase;color:#c4d0b5;font-size:11px;letter-spacing:.06em;padding:14px}td{padding:12px 14px;border-top:1px solid #232b1d;vertical-align:middle}tbody tr:hover{background:#141a10}.center{text-align:center}.place{font-size:20px;font-weight:900;color:#f5f8ee}.person{font-weight:750}.cert{display:inline-block;margin-top:5px;color:var(--lime2);font-size:11px;background:#243a11;border:1px solid #4d7022;border-radius:20px;padding:2px 8px;font-weight:750}.scoreInput{width:76px;background:#171e13;color:#fff;border:1px solid #48563a;border-radius:10px;padding:7px 8px;text-align:center}.scoreInput:focus{border-color:var(--lime)}.total{font-size:22px;color:var(--lime);font-weight:900}.track{width:100%;height:6px;border-radius:10px;background:#293322;margin-top:6px;overflow:hidden}.bar{height:100%;background:linear-gradient(90deg,#81c900,var(--lime2));border-radius:10px}.hint{margin:17px 0;color:var(--muted);font-size:13px}.hint strong{color:#f3f5e8}.footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#8f9a86;font-size:12px;margin-top:18px}.sr-only{position:absolute;clip:rect(0,0,0,0);height:1px;width:1px;overflow:hidden}.empty{padding:34px;text-align:center;color:var(--muted)}.toast{position:fixed;bottom:20px;right:20px;background:#d9ff61;color:#17200c;padding:12px 16px;border-radius:12px;box-shadow:0 8px 30px #0008;display:none;font-weight:700;z-index:10}.toast.show{display:block}@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}.hero{padding:22px}.container{padding:18px 12px 40px}.toolbar>.button{flex:1}.stat{padding:12px}.stat strong{font-size:25px}}@media print{body{background:white;color:black}.toolbar,.mast .status,.footer,.hint button{display:none}.hero,.stat,.tablewrap{border-color:#ccc;background:white}.stat strong,.total,h1 b{color:#426900}.scoreInput{border:0;background:none;color:#000}.cert{color:#426900;border:1px solid #aaa}.tablewrap{overflow:visible}table{min-width:0}th,td{color:#222;border-color:#ddd;padding:8px}th{background:#eee} .bar{background:#9bbd5b}}
+</style></head><body>
+<div class="container"><div class="mast"><div class="brand">SHiLO 50 / УПРАВЛЕНИЕ РЕЙТИНГОМ</div><div class="status"><span class="dot"></span><span id="saveStatus">Все изменения сохраняются на этом устройстве</span></div></div>
+<section class="hero"><div class="pill">3 поток · 3 модуль · 2 неделя</div><h1>Рейтинг <b>третьего модуля</b></h1><p class="sub">Интерактивная таблица результатов. Изменяйте основные и дополнительные баллы — места, итоги и статусы аттестации пересчитываются автоматически. Исходные баллы включают накопленные результаты первой недели.</p></section>
+<section class="stats" aria-label="Статистика рейтинга"><div class="stat"><strong id="participants">—</strong><span>Участников</span></div><div class="stat"><strong id="certified">—</strong><span>Прошли аттестацию</span></div><div class="stat"><strong id="leader">—</strong><span>Максимальный балл</span></div><div class="stat"><strong id="avg">—</strong><span>Средний балл</span></div></section>
+<div class="toolbar"><label class="sr-only" for="search">Поиск по имени или номеру</label><input id="search" class="search" type="search" placeholder="Найти участника по имени или №…"><label class="sr-only" for="filter">Фильтр</label><select class="filter" id="filter"><option value="all">Все участники</option><option value="passed">Аттестованы</option><option value="pending">Не аттестованы</option></select><button class="button" id="csv">↓ CSV</button><button class="button" id="json">↓ Резервная копия</button><button class="button" id="import">↑ Загрузить данные</button><button class="button" id="print">Печать</button><button class="button primary" id="reset">Сброс</button><input id="file" type="file" accept="application/json,.json" hidden></div>
+<div class="tablewrap"><table><thead><tr><th class="center">Место</th><th class="center">№</th><th>Участник</th><th class="center">Основные</th><th class="center">Дополнительные</th><th>Итого / прогресс</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<p class="hint"><strong>Условие аттестации:</strong> не менее 10 основных <em>и</em> 20 дополнительных баллов одновременно. Баллы в полях можно редактировать. Ничьи по сумме сохраняют исходный относительный порядок участников.</p>
+<div class="footer"><span>Данные сохраняются только в браузере на текущем устройстве. Для переноса используйте резервную копию JSON.</span><span>Рейтинг SHiLO 50 · 3 поток</span></div></div><div id="toast" role="status" class="toast"></div>
+<script>
+'use strict';
+const INITIAL=[{"id": 22, "name": "Кожевникова Ирина", "main": 12, "bonus": 22}, {"id": 5, "name": "Корюкова Юлия", "main": 12, "bonus": 20}, {"id": 10, "name": "Парфенова Екатерина", "main": 12, "bonus": 20}, {"id": 2, "name": "Зарянская Наталья", "main": 12, "bonus": 17}, {"id": 25, "name": "Барашкова Юля", "main": 12, "bonus": 16}, {"id": 13, "name": "Утробина Марина", "main": 12, "bonus": 15}, {"id": 18, "name": "Юркова Елизавета", "main": 12, "bonus": 15}, {"id": 3, "name": "Золотавина Софья", "main": 9, "bonus": 17}, {"id": 11, "name": "Романцова Алена", "main": 12, "bonus": 14}, {"id": 15, "name": "Черныш Николай", "main": 10, "bonus": 14}, {"id": 12, "name": "Стрельцова Наталья", "main": 10, "bonus": 13}, {"id": 24, "name": "Никитин Кирилл", "main": 5, "bonus": 17}, {"id": 19, "name": "Казакова Елена", "main": 10, "bonus": 11}, {"id": 14, "name": "Феклина Татьяна", "main": 10, "bonus": 10}, {"id": 20, "name": "Цыпышева Ульяна", "main": 7, "bonus": 10}, {"id": 8, "name": "Медведева Ольга", "main": 12, "bonus": 5}, {"id": 21, "name": "Цивилева Эльмира", "main": 9, "bonus": 7}, {"id": 1, "name": "Долгерт Александра", "main": 10, "bonus": 4}, {"id": 7, "name": "Кухаренко Ульяна", "main": 12, "bonus": 0}, {"id": 26, "name": "Лисицкая Ольга", "main": 5, "bonus": 5}, {"id": 4, "name": "Корюкова Юлианна", "main": 7, "bonus": 1}, {"id": 17, "name": "Штирц Ксения", "main": 7, "bonus": 1}, {"id": 6, "name": "Кошевец Татьяна", "main": 7, "bonus": 0}];
+const STORAGE='shilo50-rating-module3-v1';
+const $=id=>document.getElementById(id);
+let data=load();let toastTimer;
+function validItem(x){return x&&Number.isSafeInteger(x.id)&&typeof x.name==='string'&&x.name.trim().length>0&&Number.isSafeInteger(x.main)&&x.main>=0&&Number.isSafeInteger(x.bonus)&&x.bonus>=0;}
+function load(){try{const stored=JSON.parse(localStorage.getItem(STORAGE));if(Array.isArray(stored)&&stored.length===INITIAL.length&&stored.every(validItem)&&new Set(stored.map(x=>x.id)).size===stored.length&&stored.every(x=>INITIAL.some(y=>y.id===x.id&&y.name===x.name)))return stored;}catch(e){}return structuredClone(INITIAL);}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(data));$('saveStatus').textContent='Сохранено на этом устройстве';}catch(e){$('saveStatus').textContent='Сохранение недоступно: скачайте резервную копию';}}
+function total(x){return x.main+x.bonus}function passed(x){return x.main>=10&&x.bonus>=20}
+function sorted(){return [...data].sort((a,b)=>total(b)-total(a)||INITIAL.findIndex(x=>x.id===a.id)-INITIAL.findIndex(x=>x.id===b.id));}
+function node(t,cl,text){const e=document.createElement(t);if(cl)e.className=cl;if(text!==undefined)e.textContent=text;return e;}
+function render(){const all=sorted(),max=Math.max(1,...all.map(total)),search=$('search').value.trim().toLocaleLowerCase('ru'),filter=$('filter').value;
+$('participants').textContent=data.length;$('certified').textContent=data.filter(passed).length;$('leader').textContent=Math.max(...data.map(total));$('avg').textContent=(data.reduce((s,x)=>s+total(x),0)/data.length).toLocaleString('ru-RU',{maximumFractionDigits:1});
+const body=$('tbody');body.replaceChildren();let rows=0;
+for(let i=0;i<all.length;i++){const p=all[i];if(search&&!p.name.toLocaleLowerCase('ru').includes(search)&&!String(p.id).includes(search))continue;if(filter==='passed'&&!passed(p)||filter==='pending'&&passed(p))continue;rows++;const tr=node('tr');let c=node('td','center place',String(i+1));tr.append(c,node('td','center',String(p.id)));c=node('td');c.append(node('div','person',p.name));if(passed(p))c.append(node('div','cert','✓ Аттестация пройдена'));tr.append(c);
+for(const field of ['main','bonus']){const td=node('td','center'),inp=node('input','scoreInput');inp.type='number';inp.min='0';inp.max='99999';inp.step='1';inp.value=p[field];inp.setAttribute('aria-label',(field==='main'?'Основные':'Дополнительные')+' баллы — '+p.name);inp.addEventListener('change',()=>{const n=Number(inp.value);if(!Number.isSafeInteger(n)||n<0||n>99999){inp.value=p[field];showToast('Введите целое число от 0 до 99999');return}p[field]=n;save();render();});td.append(inp);tr.append(td)}
+c=node('td');c.append(node('span','total',String(total(p))));const track=node('div','track'),bar=node('div','bar');bar.style.width=(total(p)/max*100).toFixed(2)+'%';track.append(bar);c.append(track);tr.append(c);body.append(tr)}if(!rows){const tr=node('tr'),td=node('td','empty','По заданному запросу участники не найдены');td.colSpan=6;tr.append(td);body.append(tr)}}
+function showToast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2800)}
+function download(filename,type,text){const blob=new Blob([text],{type}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=filename;document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('search').addEventListener('input',render);$('filter').addEventListener('change',render);
+$('csv').addEventListener('click',()=>{const lines=[['Место','№','Участник','Основные','Дополнительные','Итого','Аттестация'],...sorted().map((p,i)=>[i+1,p.id,p.name,p.main,p.bonus,total(p),passed(p)?'Пройдена':'Не пройдена'])];const csv='\ufeff'+lines.map(row=>row.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\r\n');download('SHILO50_рейтинг.csv','text/csv;charset=utf-8',csv);showToast('CSV скачан')});
+$('json').addEventListener('click',()=>{download('SHILO50_резервная_копия.json','application/json;charset=utf-8',JSON.stringify({version:1,module:'3',participants:data},null,2));showToast('Резервная копия скачана')});
+$('import').addEventListener('click',()=>$('file').click());$('file').addEventListener('change',async e=>{const file=e.target.files?.[0];if(!file)return;try{const obj=JSON.parse(await file.text()),arr=Array.isArray(obj)?obj:obj.participants;if(!Array.isArray(arr)||arr.length!==INITIAL.length||!arr.every(validItem)||new Set(arr.map(x=>x.id)).size!==arr.length||!arr.every(x=>INITIAL.some(y=>y.id===x.id&&y.name===x.name)))throw Error('Неверная структура или список участников');if(!confirm('Заменить текущие баллы данными из файла?'))return;data=arr.map(x=>({id:x.id,name:x.name,main:x.main,bonus:x.bonus}));save();render();showToast('Данные загружены')}catch(err){alert('Не удалось импортировать: '+err.message)}finally{e.target.value=''}});
+$('print').addEventListener('click',()=>window.print());$('reset').addEventListener('click',()=>{if(!confirm('Вернуть все 23 результата к исходным? Текущие правки будут потеряны.'))return;data=structuredClone(INITIAL);save();render();showToast('Исходные данные восстановлены')});render();
+</script></body></html>
